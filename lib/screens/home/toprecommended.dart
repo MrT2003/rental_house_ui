@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rental_house_ui/constants.dart';
 import 'package:rental_house_ui/model/house.dart';
+import 'package:rental_house_ui/screens/details/detail_screen.dart';
 
 class Toprecommended extends StatelessWidget {
   const Toprecommended({super.key});
@@ -16,7 +17,16 @@ class Toprecommended extends StatelessWidget {
           itemBuilder: (context, index) {
             final rent = recommendedList[index];
             return GestureDetector(
-              onTap: () => null,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailScreen(
+                      rent: rent,
+                    ),
+                  ),
+                );
+              },
               child: Container(
                 margin: EdgeInsets.only(left: 20),
                 padding: EdgeInsets.all(10),
